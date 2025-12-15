@@ -1,16 +1,16 @@
 ---
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 
+// 1. Conectamos con la API de Storyblok
+const storyblokApi = useStoryblokApi();
+
+// 2. Pedimos la historia llamada "home" (así se llama la página de inicio en Storyblok por defecto)
+const { data } = await storyblokApi.get('cdn/stories/home', {
+  version: 'draft', // Usamos 'draft' para ver los cambios mientras editas
+});
+
+const story = data.story;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<StoryblokComponent blok={story.content} />

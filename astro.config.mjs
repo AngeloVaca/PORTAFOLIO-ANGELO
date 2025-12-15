@@ -10,7 +10,7 @@ export default defineConfig({
     storyblok({
       accessToken: env.STORYBLOK_TOKEN, // Aquí lee tu clave segura
       components: {
-        // Aquí registraremos tus componentes pronto
+        page: 'storyblok/Page',
       },
     })
   ],

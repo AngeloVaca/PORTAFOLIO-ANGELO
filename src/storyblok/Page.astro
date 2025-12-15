@@ -8,7 +8,7 @@ const { blok } = Astro.props;
 <main {...storyblokEditable(blok)}>
   <h1 style="color: red; text-align: center;">¡HOLA! SI PUEDES LEER ESTO, TODO FUNCIONA</h1>
   {
-    blok.body?.map((nestedBlok) => {
+    blok.body?.map((nestedBlok: any) => {
       return <StoryblokComponent blok={nestedBlok} />
     })
   }

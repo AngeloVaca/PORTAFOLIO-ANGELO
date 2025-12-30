@@ -1,6 +1,7 @@
 ---
 import { useStoryblokApi } from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
 
 // 1. Conectamos con la API de Storyblok
@@ -14,4 +15,8 @@ const { data } = await storyblokApi.get('cdn/stories/home', {
 const story = data.story;
 ---
 
-<StoryblokComponent blok={story.content} />
+<Layout title="Angelo Vaca - Portfolio">
+  
+  <StoryblokComponent blok={story.content} />
+
+</Layout>

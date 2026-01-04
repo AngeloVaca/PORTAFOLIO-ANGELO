@@ -1,2 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Esto empuja el scroll para que el navbar no tape el título */
+}

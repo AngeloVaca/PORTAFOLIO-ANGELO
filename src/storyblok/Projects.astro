@@ -12,41 +12,43 @@ const projects = blok?.items || propsProjects || [];
 const DEFAULT_FILTER = "datos"; 
 ---
 
-<section id="proyectos" class="py-20 bg-[#030712] text-white">
+<section id="proyectos" class="pt-20 pb-20 bg-[#030712] text-white">
   <div class="container mx-auto px-4">
     
-    <div class="text-center mb-16">
-      <span class="bg-slate-800 text-blue-200 px-4 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase border border-slate-700">
-        Portfolio
+    <div class="text-center mb-1">
+      <span class="inline-block bg-slate-800 text-slate-200 border border-slate-700 px-5 py-2 rounded-full text-sm md:text-base font-bold tracking-wide uppercase transition-transform duration-300 hover:scale-105 cursor-default shadow-md shadow-slate-900/50 mb-6">
+        {blok.title}
       </span>
-      <h2 class="text-4xl md:text-5xl font-bold mt-6 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
-        {/* AQUÍ EL CAMBIO: Título dinámico */}
-        {blok?.title || "Proyectos"}
-      </h2>
       
-      <p class="text-slate-400 text-lg max-w-2xl mx-auto">
-        {/* AQUÍ EL CAMBIO: Descripción dinámica */}
-        {blok?.subtitle || "Algunos de los proyectos notables que he construido:"}
+      <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+        {blok.subtitle}
       </p>
+    </div>
+      
+      
 
-      {/* BOTONES DE FILTRO */}
+      {/* BOTONES DE FILTRO - Estilo Blanco/Negro */}
       <div class="grid grid-cols-2 gap-4 max-w-xs mx-auto mt-10 p-1.5 bg-slate-900/50 rounded-full border border-slate-800 backdrop-blur-sm">
+        
+        {/* Botón DATOS (Activo por defecto: Blanco y Negro) */}
         <button 
-          class="filter-btn w-full py-2.5 rounded-full font-medium text-sm transition-all duration-300 bg-blue-600 text-white shadow-lg shadow-blue-900/20"
+          class="filter-btn w-full py-2.5 rounded-full font-bold text-sm transition-all duration-300 bg-white text-gray-900 shadow-lg transform scale-105"
           data-filter="datos"
         >
           Datos
         </button>
+
+        {/* Botón SOFTWARE (Inactivo: Gris) */}
         <button 
           class="filter-btn w-full py-2.5 rounded-full font-medium text-sm transition-all duration-300 text-slate-400 hover:text-white hover:bg-slate-800"
           data-filter="software"
         >
           Software
         </button>
-      </div>
-    </div>
 
-    <div class="grid grid-cols-1 gap-12 max-w-6xl mx-auto" id="projects-grid">
+      </div>
+
+    <div class="grid grid-cols-1 gap-12 max-w-6xl mx-auto pt-12" id="projects-grid">
       {
         projects && projects.length > 0 ? (
           projects.map((project:any, index:any) => {
@@ -153,14 +155,19 @@ const DEFAULT_FILTER = "datos";
       btn.addEventListener('click', () => {
         // 1. ESTILOS BOTONES
         buttons.forEach(b => {
-            b.classList.remove('bg-blue-600', 'text-white', 'shadow-lg');
-            b.classList.add('text-slate-400', 'hover:text-white');
+            // Quitamos el estilo "Activo" (Blanco)
+            b.classList.remove('bg-white', 'text-gray-900', 'shadow-lg', 'font-bold', 'scale-105');
+            
+            // Ponemos el estilo "Inactivo" (Gris transparente)
+            b.classList.add('text-slate-400', 'hover:text-white', 'hover:bg-slate-800', 'font-medium');
         });
         
-        // Estilo activo
-        btn.classList.remove('text-slate-400', 'hover:text-white', 'hover:bg-slate-800');
-        btn.classList.add('bg-blue-600', 'text-white', 'shadow-lg');
-
+        // APLICAR ESTILO ACTIVO AL BOTÓN CLICADO
+        
+        btn.classList.remove('text-slate-400', 'hover:text-white', 'hover:bg-slate-800', 'font-medium');
+        
+        // Ponemos el estilo activo (Blanco con letras negras)
+        btn.classList.add('bg-white', 'text-gray-900', 'shadow-lg', 'font-bold', 'scale-105');
         // 2. LÓGICA FILTRADO
         const filterAttr = btn.getAttribute('data-filter');
         const filterValue = filterAttr ? filterAttr.toLowerCase().trim() : '';

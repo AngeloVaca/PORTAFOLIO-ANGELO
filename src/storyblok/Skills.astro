@@ -5,13 +5,13 @@ import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 const { blok } = Astro.props;
 ---
 
-<section {...storyblokEditable(blok)} id="skills" class="bg-[#030712] py-24 px-6">
+<section {...storyblokEditable(blok)} id="skills" class="bg-[#030712] pt-4 pb-24 px-6">
   <div class="container mx-auto max-w-6xl">
     
     <div class="text-center mb-16 space-y-4">
-      <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm font-medium">
-        Skills
-      </span>
+      <span class="inline-block bg-slate-800 text-slate-200 border border-slate-700 px-5 py-2 rounded-full text-sm md:text-base font-bold tracking-wide uppercase transition-transform duration-300 hover:scale-105 cursor-default shadow-md shadow-slate-900/50">
+  Habilidades
+</span>
       <h2 class="text-3xl md:text-5xl font-bold text-white">
         {blok.title}
       </h2>

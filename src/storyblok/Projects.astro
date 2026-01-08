@@ -83,12 +83,16 @@ const DEFAULT_FILTER = "datos";
                   style={isVisible ? 'opacity: 1; transform: translateY(0);' : 'opacity: 0; transform: translateY(20px);'}
                 >
                   
-                  {/* IMAGEN - 55% ancho y SIEMPRE h-full */}
+                 {/* IMAGEN - Estilo original: Llena todo el espacio uniformemente */}
                   <div class="w-full md:w-[55%] h-64 md:h-full relative overflow-hidden bg-slate-900">
+                    
+                    {/* Overlay azul suave para unificar tonos (se quita al pasar el mouse) */}
                     <div class="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                    
                     <img 
                       src={project.image?.filename || project.image || "/placeholder.jpg"} 
                       alt={project.title} 
+                      
                       class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                   </div>
@@ -100,7 +104,7 @@ const DEFAULT_FILTER = "datos";
                       {project.title}
                     </h3>
                     
-                    <p class="text-slate-400 mb-8 leading-relaxed text-base line-clamp-4 md:line-clamp-5">
+                    <p class="text-slate-400 mb-8 leading-relaxed text-base ">
                       {project.description}
                     </p>
 

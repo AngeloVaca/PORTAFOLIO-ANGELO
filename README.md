@@ -1,43 +1,71 @@
-# Astro Starter Kit: Minimal
+![Preview del Portafolio](./public/social-preview.jpg)
+# 🚀 Portafolio Profesional - Angelo Vaca
 
-```sh
-pnpm create astro@latest -- --template minimal
-```
+> Ingeniero de Software & Analista de Datos
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Este es el repositorio del código fuente de mi portafolio profesional. Un sitio web estático de alto rendimiento diseñado para mostrar mis proyectos, habilidades y experiencia en el mundo del análisis de datos y el desarrollo de software.
 
-## 🚀 Project Structure
+🔗 **Demo en vivo:** [https://portafolio-angelo.vercel.app/](https://portafolio-angelo.vercel.app/)
 
-Inside of your Astro project, you'll see the following folders and files:
+---
+
+## 🛠️ Tecnologías (Tech Stack)
+
+Este proyecto fue construido utilizando una arquitectura moderna basada en componentes y **Headless CMS**:
+
+* **Framework:** [Astro 5.0](https://astro.build/) (Enfoque "Islands Architecture" para máximo rendimiento).
+* **Lenguajes:** TypeScript, JavaScript.
+* **Estilos:** [Tailwind CSS](https://tailwindcss.com/) (Diseño responsivo y moderno).
+* **CMS (Gestor de Contenido):** [Storyblok](https://www.storyblok.com/) (Gestión dinámica de proyectos y textos).
+* **Interactividad:** React + OGL/Three.js (Shaders personalizados para efectos visuales de fondo).
+* **Despliegue:** [Vercel](https://vercel.com/) (CI/CD automático con Webhooks).
+
+## ✨ Características Principales
+
+* **⚡ Rendimiento Extremo:** Generación de Sitio Estático (SSG) con Astro.
+* **🎨 Animaciones 3D:** Uso de shaders (GLSL) para fondos interactivos (Rayos de luz / Fluidos).
+* **📱 Diseño Responsivo:** Adaptado perfectamente a móviles, tablets y escritorio.
+* **📂 Gestión de Contenido:** Todos los textos, proyectos e imágenes se administran desde Storyblok sin tocar código.
+* **🔍 SEO Optimizado:** Metadatos dinámicos, Open Graph y accesibilidad.
+* **📥 Recursos:** Descarga directa de CV y enlaces a redes profesionales.
+
+## 🚀 Instalación y Ejecución Local
+
+Si deseas correr este proyecto en tu máquina local:
+
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone [https://github.com/TU_USUARIO/PORTAFOLIO-ANGELO.git](https://github.com/TU_USUARIO/PORTAFOLIO-ANGELO.git)
+    cd PORTAFOLIO-ANGELO
+    ```
+
+2.  **Instalar dependencias:**
+    ```bash
+    pnpm install
+    # o si usas npm: npm install
+    ```
+
+3.  **Configurar Variables de Entorno:**
+    Crea un archivo `.env` en la raíz del proyecto y agrega tu token de Storyblok:
+    ```env
+    STORYBLOK_TOKEN=tu_token_aqui
+    ```
+
+4.  **Iniciar el servidor de desarrollo:**
+    ```bash
+    pnpm dev
+    ```
+    Visita `http://localhost:4321` en tu navegador.
+
+## 📂 Estructura del Proyecto
 
 ```text
 /
-├── public/
+├── public/             # Assets estáticos (CV, Favicon, Social Preview)
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+│   ├── components/     # Componentes UI (Navbar, Cards, etc.)
+│   │   └── Islas/      # Componentes interactivos (React/3D)
+│   ├── layouts/        # Plantilla principal HTML/SEO
+│   ├── pages/          # Rutas y páginas de Astro
+│   └── storyblok/      # Componentes vinculados al CMS
+└── astro.config.mjs    # Configuración del framework
